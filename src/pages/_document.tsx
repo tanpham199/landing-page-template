@@ -14,33 +14,35 @@ const MyDocument = () => {
   );
 };
 
-MyDocument.getInitialProps = async (ctx: DocumentContext) => {
-  const cache = createCache();
-  let fileName = '';
-  const originalRenderPage = ctx.renderPage;
-  ctx.renderPage = () =>
-    originalRenderPage({
-      enhanceApp: (App) => (props) => (
-        <StyleProvider cache={cache}>
-          <App {...props} />
-        </StyleProvider>
-      ),
+if (process.env.NODE_ENV === 'production') {
+  MyDocument.getInitialProps = async (ctx: DocumentContext) => {
+    const cache = createCache();
+    let fileName = '';
+    const originalRenderPage = ctx.renderPage;
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) => (
+          <StyleProvider cache={cache}>
+            <App {...props} />
+          </StyleProvider>
+        ),
+      });
+
+    const initialProps = await Document.getInitialProps(ctx);
+    fileName = genAntdCss({
+      cache,
     });
 
-  const initialProps = await Document.getInitialProps(ctx);
-  fileName = genAntdCss({
-    cache,
-  });
-
-  return {
-    ...initialProps,
-    head: [
-      <>
-        {fileName && <link rel="stylesheet" href={`/${fileName}`} />}
-        {initialProps.head}
-      </>,
-    ],
+    return {
+      ...initialProps,
+      head: [
+        <>
+          {fileName && <link rel="stylesheet" href={`/${fileName}`} />}
+          {initialProps.head}
+        </>,
+      ],
+    };
   };
-};
+}
 
 export default MyDocument;
