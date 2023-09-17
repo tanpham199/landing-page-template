@@ -1,3 +1,4 @@
+import { DEFAULT_META_DATA } from '@/constants';
 import NextHead from 'next/head';
 
 interface HeadProps {
@@ -13,11 +14,11 @@ interface HeadProps {
 const Head = ({
   favicon = '/favicon.ico',
   pageTitle,
-  metaTitle,
-  metaDescription,
-  metaKeywords,
-  metaImage,
-  metaUrl,
+  metaTitle = pageTitle,
+  metaDescription = DEFAULT_META_DATA.metaDescription,
+  metaKeywords = DEFAULT_META_DATA.metaKeywords,
+  metaImage = DEFAULT_META_DATA.metaImage,
+  metaUrl = DEFAULT_META_DATA.metaUrl,
 }: HeadProps) => {
   return (
     <NextHead>

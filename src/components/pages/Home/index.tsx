@@ -4,12 +4,7 @@ import Head from '../Head';
 const Home = () => {
   return (
     <Section>
-      <Head
-        pageTitle="Home"
-        metaTitle="Home"
-        metaDescription="My amazing template"
-        metaKeywords="template,nextjs,react"
-      />
+      <Head pageTitle="Home" />
       Home
     </Section>
   );
