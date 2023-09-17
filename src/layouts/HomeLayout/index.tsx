@@ -1,38 +1,56 @@
 import { PropsWithChildren } from 'react';
-import { Breadcrumb, Layout, Menu, FloatButton } from 'antd';
+import { Layout, FloatButton, theme } from 'antd';
 import Image from 'next/image';
+import Link from 'next/link';
 import { APP_LOGO } from '@/constants';
 import styles from './HomeLayout.module.scss';
-import Link from 'next/link';
 import { PagePath } from '@/enums';
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 const { Header, Content, Footer } = Layout;
 
+const NAV_ITEMS = [
+  {
+    label: 'Home',
+    path: PagePath.Home,
+  },
+  {
+    label: 'About',
+    path: PagePath.About,
+  },
+];
+
 const HomeLayout = ({ children }: PropsWithChildren) => {
+  const {
+    token: { colorTextLightSolid, colorPrimary },
+  } = theme.useToken();
+
+  const router = useRouter();
+
   return (
     <Layout className="min-h-screen">
-      <Header className="flex justify-between px-12 sticky top-0">
+      <Header className={styles.header}>
         <Link href={PagePath.Home} className={classNames(styles.logo, 'center')}>
           <Image src={APP_LOGO} alt="Logo" priority />
         </Link>
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          items={new Array(5).fill(null).map((_, index) => {
-            const key = index + 1;
-            return {
-              key,
-              label: `nav ${key}`,
-            };
-          })}
-        />
+        <ul className={styles.menu}>
+          {NAV_ITEMS.map(({ label, path }) => (
+            <li key={label}>
+              <Link
+                href={path}
+                style={{
+                  color: colorTextLightSolid,
+                  backgroundColor: router.pathname === path ? colorPrimary : undefined,
+                }}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Header>
-      <Content className="px-12">
-        <Breadcrumb className="my-4" items={[{ title: 'Home' }, { title: 'List' }, { title: 'App' }]} />
-        {children}
-      </Content>
+      <Content>{children}</Content>
       <Footer className="text-center">Ant Design ©2023 Created by Ant UED</Footer>
       <FloatButton.BackTop />
     </Layout>
