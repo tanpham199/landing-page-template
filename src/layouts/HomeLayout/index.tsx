@@ -51,7 +51,7 @@ const HomeLayout = ({ children }: PropsWithChildren) => {
         </ul>
       </Header>
       <Content>{children}</Content>
-      <Footer className="text-center">Ant Design ©2023 Created by Ant UED</Footer>
+      <Footer className="text-center">A2A SOFTWARE ©2023</Footer>
       <FloatButton.BackTop />
     </Layout>
   );

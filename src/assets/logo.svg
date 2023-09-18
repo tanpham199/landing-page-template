@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="450" height="410" data-name="Layer 1" viewBox="0 0 450 410">
+  <defs>
+    <style>
+      .cls-1{fill:#fff;stroke-width:0}
+    </style>
+  </defs>
+  <path d="M245 0v75l130 130-130 130v75l205-205L245 0zM205 335 75 205 205 75V0L0 205l205 205v-75z" class="cls-1"/>
+  <path d="M245.2 150.2v109.6L300 205l-54.8-54.8zM205.2 149.8 150 205l55.2 55.2V149.8z" class="cls-1"/>
+</svg>

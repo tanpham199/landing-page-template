@@ -1,4 +1,4 @@
-import appLogo from '@/assets/logo.png';
+import appLogo from '@/assets/logo.svg';
 import { ThemeConfig } from 'antd';
 import { Montserrat } from 'next/font/google';
 

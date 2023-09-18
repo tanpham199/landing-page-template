@@ -3,9 +3,14 @@
 .header {
   position: sticky;
   top: 0;
-  padding: 0 48px;
+  padding: 0 12px;
   display: flex;
   justify-content: space-between;
+  z-index: 1000;
+
+  @include devices(desktop) {
+    padding: 0 48px;
+  }
 }
 
 .logo {

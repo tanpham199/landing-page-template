@@ -39,7 +39,7 @@ const Head = ({
           <meta property="og:title" content={metaTitle} />
         </>
       )}
-      {metaUrl && <meta property="og:url" content={metaUrl} />}
+      {metaUrl != null && <meta property="og:url" content={metaUrl} />}
     </NextHead>
   );
 };

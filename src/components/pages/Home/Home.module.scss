@@ -1,0 +1,27 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 64px);
+}
+
+.heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+
+  h1 {
+    font-size: 64px;
+    padding: 0 24px;
+    margin: 0;
+  }
+}
+
+.sub {
+  display: block;
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 500;
+}
