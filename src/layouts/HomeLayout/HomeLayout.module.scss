@@ -27,6 +27,14 @@
   }
 }
 
+.nav {
+  display: none;
+
+  @include devices(desktop) {
+    display: inline-flex;
+  }
+}
+
 .menu {
   padding: 0;
   margin: 0;
@@ -38,5 +46,21 @@
     height: 100%;
     padding: 0 12px;
     transition: all 0.2s ease-out;
+  }
+}
+
+.hamburger {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  padding: 12px;
+  transition: all 0.2s ease-out;
+
+  &:active {
+    background-color: rgb(255 255 255 / 0.2);
+  }
+
+  @include devices(desktop) {
+    display: none;
   }
 }
