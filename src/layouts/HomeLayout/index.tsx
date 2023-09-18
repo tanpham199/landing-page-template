@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Layout, FloatButton, theme } from 'antd';
+import { Layout, FloatButton, theme, Button, Space } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 import { APP_LOGO } from '@/constants';
@@ -38,21 +38,28 @@ const HomeLayout = ({ children }: PropsWithChildren) => {
         <Link href={PagePath.Home} className={classNames(styles.logo, 'center')}>
           <Image src={APP_LOGO} alt="Logo" priority />
         </Link>
-        <ul className={styles.menu}>
-          {NAV_ITEMS.map(({ label, path }) => (
-            <li key={label}>
-              <Link
-                href={path}
-                style={{
-                  color: colorTextLightSolid,
-                  backgroundColor: router.pathname === path ? colorPrimary : undefined,
-                }}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Space size="large">
+          <ul className={styles.menu}>
+            {NAV_ITEMS.map(({ label, path }) => (
+              <li key={label}>
+                <Link
+                  href={path}
+                  style={{
+                    color: colorTextLightSolid,
+                    backgroundColor: router.pathname === path ? colorPrimary : undefined,
+                  }}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link href={PagePath.Contact}>
+            <Button type="primary" shape="round">
+              Contact Us
+            </Button>
+          </Link>
+        </Space>
       </Header>
       <Content>{children}</Content>
       <Footer className="text-center">A2A SOFTWARE ©2023</Footer>
