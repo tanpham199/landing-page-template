@@ -36,13 +36,6 @@ const Home = () => {
           <Text className={styles.sub}>A2A SOFTWARE</Text>
         </div>
       </div>
-      <Section full noSpace>
-        <Carousel autoplay>
-          {DUMMY_HORIZONTAL_IMAGES.map((src) => (
-            <AntImage key={src} src={src} width="100%" height={500} alt="example" />
-          ))}
-        </Carousel>
-      </Section>
       <Section light>
         <Title level={2}>Heading 2</Title>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta deleniti, autem, vitae reiciendis non
@@ -54,6 +47,13 @@ const Home = () => {
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore iure animi corporis explicabo cumque! Qui
         inventore sapiente facilis totam, eligendi eius reprehenderit itaque iste deserunt fuga similique explicabo
         excepturi labore.
+      </Section>
+      <Section full noSpace>
+        <Carousel autoplay>
+          {DUMMY_HORIZONTAL_IMAGES.map((src) => (
+            <AntImage key={src} src={src} width="100%" height={500} alt="example" />
+          ))}
+        </Carousel>
       </Section>
       <Section light>
         <Title level={2}>Heading 2</Title>
@@ -70,6 +70,21 @@ const Home = () => {
         </Row>
       </Section>
       <Section>
+        <Card
+          hoverable
+          cover={
+            <AntImage
+              src="https://images.unsplash.com/photo-1504131598085-4cca8500b677?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80"
+              alt="example"
+              width="100%"
+              height={500}
+            />
+          }
+        >
+          <Meta title="Europe Street beat" description="www.instagram.com" className="text-center" />
+        </Card>
+      </Section>
+      <Section light>
         <Title level={2}>Heading 2</Title>
         <Row>
           {[1, 2, 3, 4].map((key) => (
@@ -83,7 +98,7 @@ const Home = () => {
           ))}
         </Row>
       </Section>
-      <Section light>
+      <Section>
         <Title level={2}>Heading 2</Title>
         <Row>
           {[1, 2, 3, 4].map((key) => (
@@ -97,7 +112,7 @@ const Home = () => {
           ))}
         </Row>
       </Section>
-      <Section>
+      <Section light>
         <Title level={2}>Heading 2</Title>
         <Row>
           <Col xl={12} lg={12} md={12} sm={24} className="center">
@@ -113,20 +128,20 @@ const Home = () => {
           <Col xl={12} lg={12} md={12} sm={24}>
             <AntImage
               width="100%"
-              height={400}
+              height={280}
               src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
               alt="example"
             />
           </Col>
         </Row>
       </Section>
-      <Section light>
+      <Section>
         <Title level={2}>Heading 2</Title>
         <Row>
           <Col xl={12} lg={12} md={12} sm={24}>
             <AntImage
               width="100%"
-              height={400}
+              height={280}
               src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
               alt="example"
             />
