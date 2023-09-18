@@ -1,20 +1,21 @@
 import Section from '@/components/common/Section';
 import Head from '../Head';
 import styles from './About.module.scss';
-import { Card, Typography, Image as AntImage } from 'antd';
+import { Typography, Image as AntImage } from 'antd';
 import classNames from 'classnames';
+import { Col, Row } from '@/components/common/Grid';
 
-const { Title, Paragraph } = Typography;
-const { Meta } = Card;
+const { Title, Paragraph, Text } = Typography;
 
 const About = () => {
   return (
     <>
       <Head pageTitle="About" metaDescription="Details about my website" />
       <div className={classNames(styles.hero, 'center')}>
-        <Title>Softwares that change the world</Title>
+        <Title className="text-center">Softwares that change the world</Title>
       </div>
       <Section light>
+        <Title level={2}>Heading 2</Title>
         <Paragraph>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti obcaecati ex sint natus cupiditate animi
           quas quae repudiandae quia neque exercitationem accusamus, a saepe dolores laborum ducimus possimus, delectus
@@ -32,21 +33,30 @@ const About = () => {
         </Paragraph>
       </Section>
       <Section>
-        <Card
-          hoverable
-          cover={
+        <Title level={2}>Heading 2</Title>
+        <Row>
+          <Col xl={12} lg={12} md={12} sm={24} className="center">
+            <div className="text-center md:text-right">
+              <Title level={3}>Heading 3</Title>
+              <Text>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias rem quos provident repellat eum
+                excepturi magni qui amet? Sed at enim illum? Vitae, corporis dolorem. Perferendis tempora tempore
+                perspiciatis expedita.
+              </Text>
+            </div>
+          </Col>
+          <Col xl={12} lg={12} md={12} sm={24}>
             <AntImage
-              src="https://images.unsplash.com/photo-1504131598085-4cca8500b677?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80"
-              alt="example"
               width="100%"
-              height={500}
+              height={280}
+              src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
+              alt="example"
             />
-          }
-        >
-          <Meta title="Europe Street beat" description="www.instagram.com" className="text-center" />
-        </Card>
+          </Col>
+        </Row>
       </Section>
       <Section light>
+        <Title level={2}>Heading 2</Title>
         <Paragraph>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti obcaecati ex sint natus cupiditate animi
           quas quae repudiandae quia neque exercitationem accusamus, a saepe dolores laborum ducimus possimus, delectus
@@ -62,6 +72,29 @@ const About = () => {
           eius! Blanditiis sed accusamus eveniet, dolor maxime dolore voluptatum, nisi soluta dolorem quibusdam hic
           obcaecati ducimus?
         </Paragraph>
+      </Section>
+      <Section>
+        <Title level={2}>Heading 2</Title>
+        <Row>
+          <Col xl={12} lg={12} md={12} sm={24}>
+            <AntImage
+              width="100%"
+              height={280}
+              src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
+              alt="example"
+            />
+          </Col>
+          <Col xl={12} lg={12} md={12} sm={24} className="center">
+            <div className="text-center md:text-left">
+              <Title level={3}>Heading 3</Title>
+              <Text>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias rem quos provident repellat eum
+                excepturi magni qui amet? Sed at enim illum? Vitae, corporis dolorem. Perferendis tempora tempore
+                perspiciatis expedita.
+              </Text>
+            </div>
+          </Col>
+        </Row>
       </Section>
     </>
   );
