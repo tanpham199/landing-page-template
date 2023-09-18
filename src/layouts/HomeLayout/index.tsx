@@ -19,6 +19,10 @@ const NAV_ITEMS = [
     label: 'About',
     path: PagePath.About,
   },
+  {
+    label: 'FAQs',
+    path: PagePath.Faqs,
+  },
 ];
 
 const HomeLayout = ({ children }: PropsWithChildren) => {
