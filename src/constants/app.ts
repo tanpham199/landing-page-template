@@ -6,6 +6,8 @@ export const APP_URL = 'https://www.a2asoftware.com';
 
 export const APP_LOGO = appLogo;
 
+export const APP_FAVICON = appLogo;
+
 export const FONT_FAMILY = Montserrat({ subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'] });
 
 export const APP_THEME: ThemeConfig = {
