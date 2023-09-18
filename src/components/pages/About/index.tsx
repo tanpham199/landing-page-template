@@ -1,9 +1,11 @@
 import Section from '@/components/common/Section';
 import Head from '../Head';
 import styles from './About.module.scss';
-import { Typography, Image as AntImage } from 'antd';
+import { Typography } from 'antd';
 import classNames from 'classnames';
 import { Col, Row } from '@/components/common/Grid';
+import Image from 'next/image';
+import { getImage2BpSizes } from '@/utils';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -46,12 +48,14 @@ const About = () => {
             </div>
           </Col>
           <Col xl={12} lg={12} md={12} sm={24}>
-            <AntImage
-              width="100%"
-              height={280}
-              src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
-              alt="example"
-            />
+            <div className="relative w-full h-72">
+              <Image
+                src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
+                alt="example"
+                fill
+                sizes={getImage2BpSizes({ md: '100vw', xl: '50vw' })}
+              />
+            </div>
           </Col>
         </Row>
       </Section>
@@ -77,12 +81,14 @@ const About = () => {
         <Title level={2}>Heading 2</Title>
         <Row>
           <Col xl={12} lg={12} md={12} sm={24}>
-            <AntImage
-              width="100%"
-              height={280}
-              src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
-              alt="example"
-            />
+            <div className="relative w-full h-72">
+              <Image
+                src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
+                alt="example"
+                fill
+                sizes={getImage2BpSizes({ md: '100vw', xl: '50vw' })}
+              />
+            </div>
           </Col>
           <Col xl={12} lg={12} md={12} sm={24} className="center">
             <div className="text-center md:text-left">

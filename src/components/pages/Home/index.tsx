@@ -1,15 +1,15 @@
 import Section from '@/components/common/Section';
 import Head from '../Head';
-import { Card, Image as AntImage, Typography, Carousel } from 'antd';
+import { Card, Typography, Carousel } from 'antd';
 import { Col, Row } from '@/components/common/Grid';
 import Link from 'next/link';
 import Image from 'next/image';
 import heroImg from '@/assets/hero.jpg';
 import styles from './Home.module.scss';
+import { getImage2BpSizes, getImage4BpSizes } from '@/utils';
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
-const { PreviewGroup } = AntImage;
 
 const DUMMY_VERTICAL_IMAGES = [
   'https://images.unsplash.com/photo-1574701148212-8518049c7b2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2136&q=80',
@@ -51,34 +51,49 @@ const Home = () => {
       <Section full noSpace>
         <Carousel autoplay>
           {DUMMY_HORIZONTAL_IMAGES.map((src) => (
-            <AntImage key={src} src={src} width="100%" height={500} alt="example" />
+            <div key={src} className="relative w-full h-128">
+              <Image src={src} alt="example" fill sizes="100vw" />
+            </div>
           ))}
         </Carousel>
       </Section>
       <Section light>
         <Title level={2}>Heading 2</Title>
         <Row>
-          <PreviewGroup>
-            {DUMMY_VERTICAL_IMAGES.map((src) => (
-              <Col key={src}>
-                <Card cover={<AntImage src={src} height={300} alt="example" />} hoverable>
-                  <Meta title="Europe Street beat" description="www.instagram.com" />
-                </Card>
-              </Col>
-            ))}
-          </PreviewGroup>
+          {DUMMY_VERTICAL_IMAGES.map((src) => (
+            <Col key={src}>
+              <Card
+                cover={
+                  <div className="relative w-full h-72">
+                    <Image
+                      src={src}
+                      alt="example"
+                      fill
+                      sizes={getImage4BpSizes({ sm: '100vw', md: '50vw', lg: '33vw', xl: '25vw' })}
+                      quality={90}
+                    />
+                  </div>
+                }
+                hoverable
+              >
+                <Meta title="Europe Street beat" description="www.instagram.com" />
+              </Card>
+            </Col>
+          ))}
         </Row>
       </Section>
       <Section>
         <Card
           hoverable
           cover={
-            <AntImage
-              src="https://images.unsplash.com/photo-1504131598085-4cca8500b677?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80"
-              alt="example"
-              width="100%"
-              height={500}
-            />
+            <div className="relative w-full h-128">
+              <Image
+                src="https://images.unsplash.com/photo-1504131598085-4cca8500b677?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80"
+                alt="example"
+                fill
+                sizes="100vw"
+              />
+            </div>
           }
         >
           <Meta title="Europe Street beat" description="www.instagram.com" className="text-center" />
@@ -126,12 +141,14 @@ const Home = () => {
             </div>
           </Col>
           <Col xl={12} lg={12} md={12} sm={24}>
-            <AntImage
-              width="100%"
-              height={280}
-              src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
-              alt="example"
-            />
+            <div className="relative w-full h-72">
+              <Image
+                src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
+                alt="example"
+                fill
+                sizes={getImage2BpSizes({ md: '100vw', xl: '50vw' })}
+              />
+            </div>
           </Col>
         </Row>
       </Section>
@@ -139,12 +156,14 @@ const Home = () => {
         <Title level={2}>Heading 2</Title>
         <Row>
           <Col xl={12} lg={12} md={12} sm={24}>
-            <AntImage
-              width="100%"
-              height={280}
-              src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
-              alt="example"
-            />
+            <div className="relative w-full h-72">
+              <Image
+                src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3131&q=80"
+                alt="example"
+                fill
+                sizes={getImage2BpSizes({ md: '100vw', xl: '50vw' })}
+              />
+            </div>
           </Col>
           <Col xl={12} lg={12} md={12} sm={24} className="center">
             <div className="text-center md:text-left">
