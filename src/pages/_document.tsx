@@ -17,7 +17,6 @@ const MyDocument = () => {
 if (process.env.NODE_ENV === 'production') {
   MyDocument.getInitialProps = async (ctx: DocumentContext) => {
     const cache = createCache();
-    let fileName = '';
     const originalRenderPage = ctx.renderPage;
     ctx.renderPage = () =>
       originalRenderPage({
@@ -29,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
       });
 
     const initialProps = await Document.getInitialProps(ctx);
-    fileName = genAntdCss({
+    const fileName = genAntdCss({
       cache,
     });
 
