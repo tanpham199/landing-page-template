@@ -9,6 +9,16 @@ const nextConfig = {
       },
     ],
   },
+  transpilePackages: [
+    'antd',
+    '@ant-design',
+    '@ant-design/icons',
+    'rc-tree',
+    'rc-table',
+    'rc-pagination',
+    'rc-util',
+    'rc-picker',
+  ],
 };
 
 module.exports = nextConfig;
